@@ -35,18 +35,21 @@ const ExampleLayoutPage: Component = () => {
 	onMount(() => shinobiButton && shinobiButton.focus())
 	return (
 		<div class="flex h-screen w-full flex-row bg-basedark-1">
-			<div class="flex h-screen flex-col items-center space-y-2 bg-basedark-3 px-3 py-2">
-				<div class="flex size-12 rounded-2xl bg-blurple">
+			<div class="flex h-screen w-36 flex-col items-center space-y-2 bg-basedark-3 py-2">
+				<div class=" flex size-12 rounded-2xl bg-blurple">
 					<img src="./src/assets/icon-discord.svg" class="m-auto h-3/5 w-3/5" />
 				</div>
 				<hr class="h-0.5 w-3/4 border-0 bg-basedark-light" />
 				<For each={avatarList()}>
 					{(avatar) => {
 						return (
-							<img
-								class="size-12 cursor-pointer rounded-3xl transition-all duration-300 ease-in-out hover:rounded-2xl"
-								src={avatar}
-							/>
+							<div class="group flex w-full justify-center">
+								<div class="absolute left-0 mt-4 h-3 w-1 scale-0  rounded-lg bg-white transition-all group-hover:scale-100 " />
+								<img
+									class="size-12 flex-none cursor-pointer rounded-3xl transition-all duration-300 ease-in-out hover:rounded-2xl"
+									src={avatar}
+								/>
+							</div>
 						)
 					}}
 				</For>
@@ -105,7 +108,7 @@ const ExampleLayoutPage: Component = () => {
 								<div class="relative">
 									<img src={contact} class="mr-2 size-8 rounded-3xl" />
 									<div
-										class="border-gray-4 ring-basedark-2 absolute bottom-0 right-2 size-2.5 rounded-full border-[2.5px]  bg-basedark-2 ring-2"
+										class="border-gray-4 absolute bottom-0 right-2 size-2.5 rounded-full border-[2.5px] bg-basedark-2  ring-2 ring-basedark-2"
 										classList={{
 											"border-gray-500": i() > 1,
 											"border-green-600": i() <= 1,
@@ -117,7 +120,7 @@ const ExampleLayoutPage: Component = () => {
 						)}
 					</For>
 				</div>
-				<div class="bg-basedark-3.5 flex w-full flex-row px-1 py-1.5">
+				<div class="flex w-full flex-row bg-basedark-3.5 px-1 py-1.5">
 					<button class="mr-1.5 flex w-full flex-grow flex-row items-center rounded-md px-0.5 py-1 hover:bg-basedark-light  focus:bg-basedark-light ">
 						<div class="mr-2 flex size-8 items-center justify-center rounded-full bg-slate-50">
 							<img src="./src/assets/logo.svg" class=" size-6" />
@@ -150,7 +153,7 @@ const ExampleLayoutPage: Component = () => {
 							No one's around to play with Lonewolf.
 						</span>
 					</div>
-					<div class="border-basedark-light flex h-full w-[55%] flex-col border-l px-4 py-5">
+					<div class="flex h-full w-[55%] flex-col border-l border-basedark-light px-4 py-5">
 						<span class="text-xl font-extrabold text-white">Active Now</span>
 						<p class="mt-7 text-center text-sm font-semibold text-gray-100">
 							It's quiet for now...
